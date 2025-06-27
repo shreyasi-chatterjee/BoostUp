@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Boost Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+        <link rel="stylesheet" href="CSS/energyDrink.css">
+
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <header>
+            <!--sidebar for hamburger menu-->
+            <div class="sidebar">
+
+                <div id="side-links" class="topnav">
+                    <a href="#" onclick="hidebar()"><i class="fi fi-rr-cross"></i></a>
+                    <a href="#hero">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#contact">Help & Support</a>
+                    <a href="#" id="account" onclick="openModal()"><i class="fi fi-ss-user"
+                        style="font-size: 26px;"></i></a>
+                </div>
+            </div>
+            <!--navbar-->
+            <div id="nav">
+                    <div id="logo">BOOST UP</div>
+                    <div id="nav-links" class="topnav">
+                        <a href="#hero">Home</a>
+                        <a href="#features">Features</a>
+                        <a href="#reviews">Reviews</a>
+                        <a href="#contact">Help & Support</a>
+                        <a href="#" id="account" onclick="openModal()"><i class="fi fi-ss-user"
+                            style="font-size: 26px;"></i></a>
+                        <a href="#" onclick="showSidebar()" class="menu-btn">
+                            <i class="fi fi-br-menu-burger"></i></a>
+                    </div>
+            </div>
+        </header>
+        <!--modal for login page-->
+        <div class="modal">
+            <div id="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>Login</h3>
+                <p id="err-msg"></p>
+                <form id="form">
+                    <label>Email id</label><br>
+                    <span id="emailError" style="color: red; font-size: 12px;"></span>
+                    <input type="text" name="email"  id="loginEmail" placeholder="abc@gmail.com..">
+                
+                    <label>Password</label><br>
+                    <span id="passError" style="color: red; font-size: 12px;"></span>
+                    <input type="password" name="password" id="LoginPass" placeholder="Password.." required>
+                    
+
+                    <p style="text-align: center;">or</p>
+                    <div class="alt-opt">
+                    <p style="display: inline; padding: 8px 8px;">Sign in with</p>
+                    <img src="images/search.png">
+                    </div>
+                    <button type="submit" id="sign-in" onclick="signIn()">Sign in</button>
+                </form>
+                
+                <span>
+                    <p style="margin-top: 20px; font-size: 14px; ">New User ?</p>
+                    <a href="#" style="text-decoration: none;" onclick="openSignUpModal()">
+                        <p style="font-size: 14px; margin-top: 10px; color: deeppink;"
+                        >Sign Up !</p></a>
+                </span>
+                
+            </div>
+        </div>
+        <!--modal for sign up page-->
+        <div class="signUp-modal">
+            <div id="signUp-modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>Sign Up</h3>
+                <form id="form">
+                    <label>Name</label><br>
+                    <input type="text" name="name" id="name" placeholder="Name.." required>
+
+                    <label>Email id</label><br>
+                    <span id="SignupEmailError" style="color: red; font-size: 12px;"></span>
+                    <input type="text" name="email" id="email" placeholder="abc@gmail.com.." required>
+
+                    <label>Password</label><br>
+                    <span id="singUpPassError" style="color: red; font-size: 12px;"></span>
+                    <input type="password" name="password" id="SingUpPass" placeholder="Password.." required>
+
+                    <label class="checkbox-cont">Remember Me!
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <p style="text-align: center;">or</p>
+                    <div class="alt-opt">
+                        <a href="#" style="text-decoration: underline grey; color: grey"><p style="display: inline; padding: 8px 8px;">Sign up with</p>
+                            <img src="images/search.png"></a>
+                    </div>
+                    <button type="submit" id="sign-up" onclick="signUp()">Sign up</button>
+                </form>
+            </div>
+        </div>
+        <!--hero section-->
+        <section id="hero">
+            <div id="img-cont">
+                <img src="images/energy drink.png" class="hide-img1" style="z-index: 1;">
+                <img src="images/pink can.png" class="img2" style="position: relative; right: 150px;
+                top: 70px; z-index: 2;">
+                <img src="images/green drink.png" class="hide-img3" style="position: relative; left: 840px;
+                bottom: 820px; z-index: 3;">
+                <div id="hero-text">
+                    <h1>Folks ! It's time to boost up yourselves..</h1>
+                    <p>Flat 15% off on our bestsellers, go grab them.</p>
+                    <a href="BoostUp/BuyNow.html">BUY NOW</a>
+                </div>
+            </div>
+        </section>
+        <!--features-->
+        <section id="features">
+            <h2>Features</h2>
+            <div class="features">
+            <div class="feature-item">
+                <p>No Artificial Colours.</p>
+            </div>
+            <div class="feature-item">
+                <p>Zero Preservatives.</p>
+            </div>
+            <div class="feature-item">
+                <p>Comes in variety of lip smacking flavors.</p>
+            </div>
+            </div>
+        </section>
+        <!--reviews-->
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <div class="review-cont">
+                <div class="container">
+                    <img src="images/profile (1).png">
+                    <span id="pname">Nilam Ahuja</span><br>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <p>amazing product , quality is top notch. Worth the price.</p>
+                </div>
+
+                <div class="container">
+                    <img src="images/profile (1).png">
+                    <span id="pname">Amit Kumar</span><br>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <p>Tastes amazing, escpecially the Litchi one. Loved it.</p>
+                </div>
+
+                <div class="container">
+                    <img src="images/profile (1).png">
+                    <span id="pname">Suman Das</span><br>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star checked"></i></span>
+                    <span><i class="fi fi-sr-star"></i></span>
+                    <p>Not too sweet , just the perfect balance. Go for it guys.</p>
+                </div>
+            </div>
+        </section>
+        <!--contact-->
+        <footer id="contact">
+            <h2>Contact Us !</h2>
+            <hr style="background-color: pink; width: 80%; height: 3px; border-radius: 5px; margin-top: 20px;">
+            <div class="contact-cont">
+                <div class="social-links">
+                    <a href="#"><i class="fi fi-brands-facebook" style="color: white; padding: 0 25px;
+                    font-size: 20px;"></i></a>
+                    <a href="#"><i class="fi fi-brands-instagram" style="color: white; font-size: 20px;"></i></a>
+                </div>
+                <div class="social-links" >
+                    <i class="fi fi-sr-envelope" style="padding: 0 10px"></i>
+                    <p>boostup@gmail.com</p>
+                </div>
+                <div class="social-links">
+                    <i class="fi fi-rr-phone-call" style="padding: 0 10px"></i>
+                    <p>+91 7833140923</p>
+                </div>
+            </div>
+        <p id="copyright">&copy; 2025 BOOST UP</p>
+        </footer>
+        <!--javascript-->
+        <script type="text/javascript" defer>
+            
+        function showSidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+
+        function openModal() {
+            const modal = document.querySelector(".modal");
+            modal.style.display = "block";
+        }
+        function closeModal() {
+            const modal = document.querySelector(".modal");
+            const signUpModal = document.querySelector(".signUp-modal");
+            modal.style.display = "none";
+            signUpModal.style.display = "none";
+        }
+        window.onclick = function(event) {
+        const modal = document.querySelector(".modal");
+        const signUpModal = document.querySelector(".signUp-modal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        if (event.target == signUpModal){
+            signUpModal.style.display = "none";
+        }
+        }
+        function openSignUpModal() {
+            const modal = document.querySelector(".modal");
+            const signUpModal = document.querySelector(".signUp-modal");
+            signUpModal.style.display = "block";
+            modal.style.display = "none";
+        }
+        
+        function signIn() {
+            var email = document.getElementById("loginEmail").value;
+            var pass = document.getElementById("LoginPass").value;
+            const emailError = document.getElementById('emailError');
+            const passError = document.getElementById('passError');
+
+            if (!isValidEmail(email)) {
+                event.preventDefault();
+                emailError.textContent = "Please enter a valid email address.";
+            } else {
+                emailError.textContent = ""; 
+            }
+
+            var message = isValidPass(pass);
+
+            if(message!= null) {
+                passError.textContent = "Invalid password";
+                event.preventDefault();
+            } else {
+                passError.textContent = "";
+            }
+        }
+
+        function signUp() {
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("SingUpPass").value;
+            const emailError = document.getElementById('SignupEmailError');
+            const passError = document.getElementById('singUpPassError');
+
+            if (!isValidEmail(email)) {
+                event.preventDefault();
+                emailError.textContent = "Please enter a valid email address.";
+            } else {
+                emailError.textContent = ""; 
+            }
+
+            var message = isValidPass(pass);
+
+            if(message!= null) {
+                passError.textContent = message;
+                event.preventDefault();
+            } else {
+                passError.textContent = "";
+            }
+        }
+        
+        function isValidEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function isValidPass(password) {
+            const minLength = 8;
+            const regexUppercase = /[A-Z]/;
+            const regexLowercase = /[a-z]/;
+            const regexNumber = /[0-9]/;
+            const regexSpecial = /[\W_]/;
+            var message;
+
+            if (password.length < minLength) {
+                return "Password must be at least 8 characters long.";
+            }
+            if (!regexUppercase.test(password)) {
+                return "Password must include at least one uppercase letter.";
+            }
+            if (!regexLowercase.test(password)) {
+                return "Password must include at least one lowercase letter.";
+            }
+            if (!regexNumber.test(password)) {
+                return "Password must include at least one number.";
+            }
+            if (!regexSpecial.test(password)) {
+                return "Password must include at least one special character.";
+            }
+        }
+    </script>
+    </body>
+</html>
